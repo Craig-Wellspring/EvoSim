@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Metabolism : MonoBehaviour
 {
-    public int metabolicEfficiency = 20;
-    public int metabolismRate = 250;
-    int metaTick = 0;
+    public float metabolicEfficiency = 20;
+
+    public float metabolismRate = 250;
+
+    float metaTick = 0;
 
     ResourceStorageManager Resources;
 
@@ -23,9 +25,18 @@ public class Metabolism : MonoBehaviour
         return Vitality.Heal(0.01f);
     }
 
+    void Metabolize()
+    {
+    }
 
     // METABOLIC LOOP
     void Update()
     {
+        metaTick += Time.deltaTime;
+        if (metaTick > metabolismRate)
+        {
+            metaTick = 0;
+            Metabolize();
+        }
     }
 }
