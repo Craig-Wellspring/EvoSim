@@ -20,8 +20,8 @@ public class LifeGeneration : MonoBehaviour
                 transform.position + new Vector3(0, 1, 0),
                 transform.rotation);
         newSpawn.name = spawn.name;
-        Rigidbody rb = spawn.GetComponent<Rigidbody>();
-        rb.AddForce(new Vector3(0, 100, 0), ForceMode.VelocityChange);
+        // Rigidbody rb = spawn.GetComponent<Rigidbody>();
+        // rb.AddForce(new Vector3(0, 100, 0), ForceMode.VelocityChange);
 
         return newSpawn;
     }

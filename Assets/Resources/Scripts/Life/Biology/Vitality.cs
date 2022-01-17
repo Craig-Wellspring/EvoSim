@@ -4,33 +4,46 @@ using UnityEngine;
 
 public class Vitality : MonoBehaviour
 {
-    ResourceStorageManager Resources;
+    ResourceStorageController Resources;
+    CentralNervousSystem CNS;
+
+    public bool isAlive = true;
 
     void Start()
     {
-        Resources = GetComponentInChildren<ResourceStorageManager>();
+        Resources = GetComponentInChildren<ResourceStorageController>();
+        CNS = GetComponentInParent<CentralNervousSystem>();
     }
 
-    public void TakeDamage(float _amount)
+    public bool TakeDamage(float _amount)
     {
-        if (!Resources.Health.takeFrom(_amount))
+        if (!Resources.Health.TakeFrom(_amount, 1))
         {
             Die();
+            return false;
         }
+        return true;
     }
 
     public float Heal(float _increase)
     {
-        return Resources.Health.addTo(_increase);
+        return Resources.Health.AddTo(_increase);
     }
-
 
     public float GetCurrentHealth()
     {
         return Resources.Health.current;
     }
 
+    public bool isMaxHealth()
+    {
+        return Resources.Health.current >= Resources.Health.max;
+    }
+
     void Die()
     {
+        Resources.Health.Set(0f);
+        isAlive = false;
+        CNS.Metabolism.enabled = false;
     }
 }
