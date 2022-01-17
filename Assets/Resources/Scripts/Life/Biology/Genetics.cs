@@ -19,4 +19,9 @@ public class Genetics : MonoBehaviour
     {
         Resources.DNA.TakeFrom(_amount);
     }
+
+    public float GetDNA()
+    {
+        return Resources.DNA.current;
+    }
 }
