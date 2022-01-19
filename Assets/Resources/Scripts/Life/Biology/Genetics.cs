@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class Genetics : MonoBehaviour
 {
-    ResourceStorageController Resources;
+    ResourceStorageController resources;
     void Start()
     {
-        Resources = GetComponentInChildren<ResourceStorageController>();
+        resources = GetComponentInChildren<ResourceStorageController>();
     }
 
     public void GainDNA(float _amount)
     {
-        Resources.DNA.AddTo(_amount);
+        resources.DNA.AddTo(_amount);
     }
 
     public void SpendDNA(float _amount)
     {
-        Resources.DNA.TakeFrom(_amount);
+        resources.DNA.TakeFrom(_amount);
     }
 
     public float GetDNA()
     {
-        return Resources.DNA.current;
+        return resources.DNA.current;
     }
 }

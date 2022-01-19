@@ -2475,7 +2475,7 @@ Transform:
   m_Children:
   - {fileID: 217068291}
   m_Father: {fileID: 2023651977}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &1803291961
 MonoBehaviour:
@@ -2939,7 +2939,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2023651977}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2013447501
 MonoBehaviour:
@@ -3006,10 +3006,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.156, z: -2.567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1803291960}
+  - {fileID: 2013447500}
   - {fileID: 487069773}
   - {fileID: 292589753}
-  - {fileID: 2013447500}
+  - {fileID: 1803291960}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

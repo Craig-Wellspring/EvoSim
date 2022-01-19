@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Consumer : MonoBehaviour
 {
-  public ResourceType Type;
-  [HideInInspector] ResourceManager Storage;
-  [HideInInspector] ResourceStorageController StorageController;
+  public ResourceType type;
+  [HideInInspector] ResourceManager storage;
+  [HideInInspector] ResourceStorageController storageController;
 
   void Start()
   {
@@ -15,26 +15,26 @@ public class Consumer : MonoBehaviour
 
   public void Initialize(ResourceType _type)
   {
-    Type = _type;
+    type = _type;
     AssignManager();
   }
 
   void AssignManager()
   {
-    switch (Type)
+    switch (type)
     {
-      case ResourceType.Flesh: Storage = StorageController.Flesh; break;
-      case ResourceType.Pulp: Storage = StorageController.Pulp; break;
-      case ResourceType.Mineral: Storage = StorageController.Mineral; break;
-      case ResourceType.Water: Storage = StorageController.Water; break;
+      case ResourceType.Flesh: storage = storageController.Flesh; break;
+      case ResourceType.Pulp: storage = storageController.Pulp; break;
+      case ResourceType.Mineral: storage = storageController.Mineral; break;
+      case ResourceType.Water: storage = storageController.Water; break;
     }
   }
 
   public void Consume(Resource _target, float _amount)
   {
-    if (_target.Type == Type && _target.remaining > 0)
+    if (_target.type == type && _target.remaining > 0)
     {
-      Storage.AddTo(_target.TakeFrom(_amount));
+      storage.AddTo(_target.TakeFrom(_amount));
     }
   }
 }

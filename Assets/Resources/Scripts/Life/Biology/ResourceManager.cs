@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-  public ResourceType Type;
+  public ResourceType type;
 
   public float current;
 
@@ -14,7 +14,7 @@ public class ResourceManager : MonoBehaviour
 
   public void Initialize(ResourceType _type, bool _startMax = false, float _current = 0, float _max = 0)
   {
-    Type = _type;
+    type = _type;
     startMax = _startMax;
     current = _current;
     max = _max;
@@ -65,7 +65,7 @@ public class ResourceManager : MonoBehaviour
     ResourceStorage[] storageCells = transform.root.GetComponentsInChildren<ResourceStorage>();
     foreach (var cell in storageCells)
     {
-      if (cell.Type == this.Type)
+      if (cell.type == this.type)
       {
         calculatedMax += cell.increaseMaxStorage;
       }

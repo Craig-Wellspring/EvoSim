@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2543952028256524368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5047181018280845099}
+  - component: {fileID: 7016119487815385788}
+  - component: {fileID: 5615142376949819591}
+  m_Layer: 6
+  m_Name: Corpse
+  m_TagString: Corpse
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5047181018280845099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543952028256524368}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6518560385138486613}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7016119487815385788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543952028256524368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479b966e68690e14085d73db87728336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5615142376949819591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543952028256524368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc39e288dda39ef42b31269cab33676e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 4
+  remaining: 0
 --- !u!1 &4342221091866031827
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6518560385138486613}
   - component: {fileID: 7827270853668179495}
-  - component: {fileID: 2962754040542319817}
+  - component: {fileID: 8053780042149338627}
   m_Layer: 7
   m_Name: Primordius
   m_TagString: Organism
@@ -30,6 +88,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2882231601062038263}
+  - {fileID: 5047181018280845099}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42,14 +101,14 @@ Rigidbody:
   m_GameObject: {fileID: 4342221091866031827}
   serializedVersion: 2
   m_Mass: 0.01
-  m_Drag: 40
+  m_Drag: 60
   m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &2962754040542319817
+--- !u!114 &8053780042149338627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,9 +117,85 @@ MonoBehaviour:
   m_GameObject: {fileID: 4342221091866031827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81ca0ee87e85d249baf0e315a9ace14, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: dcafa973dc8e4f748a6a0d9e9c8013cc, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 736120f5-1186-49cf-be00-b5837c13363a
+    m_ActionName: Underwater/Move[/Keyboard/s,/Keyboard/w,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 74a6b270-db2e-4093-b78f-375e31153b3d
+    m_ActionName: Underwater/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b30f59fe-204f-464b-85b5-5efb76667a13
+    m_ActionName: Underwater/Lunge Forward[/Keyboard/leftShift,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: db1ac11d-68dc-4e3d-ba0f-bce922554fab
+    m_ActionName: Underwater/Float[/Keyboard/leftCtrl,/Keyboard/leftAlt]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Desktop
+  m_DefaultActionMap: Underwater
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!1 &5096236513486597198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8972509114148054930}
+  m_Layer: 7
+  m_Name: Hull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8972509114148054930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096236513486597198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2882231601062038263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8479861058694982878
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +209,7 @@ GameObject:
   - component: {fileID: 2247765056457320843}
   - component: {fileID: 5424026341229765589}
   m_Layer: 7
-  m_Name: Membrane
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +226,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
+  - {fileID: 8972509114148054930}
   - {fileID: 3844384258528513807}
   - {fileID: 3600400633936916049}
   m_Father: {fileID: 6518560385138486613}
@@ -167,7 +303,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1575030967303946032, guid: aca43f3c818cbb349bc6963f0b2c5bc8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1575030967303946032, guid: aca43f3c818cbb349bc6963f0b2c5bc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -233,7 +369,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1407117294432544922, guid: c070a0665888bbd4da03fa36c3749bb0, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1407117294432544922, guid: c070a0665888bbd4da03fa36c3749bb0, type: 3}
       propertyPath: m_LocalPosition.x

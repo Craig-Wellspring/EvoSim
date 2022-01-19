@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CentralNervousSystem : MonoBehaviour
 {
-    [HideInInspector] public Vitality Vitality;
-    [HideInInspector] public Metabolism Metabolism;
-    [HideInInspector] public Genetics Genetics;
+    [HideInInspector] public Vitality vitality;
+    [HideInInspector] public Metabolism metabolism;
+    [HideInInspector] public Genetics genetics;
 
     void Start()
     {
-        Vitality = GetComponentInChildren<Vitality>();
-        Metabolism = GetComponentInChildren<Metabolism>();
-        Genetics = GetComponentInChildren<Genetics>();
+        vitality = GetComponentInChildren<Vitality>();
+        metabolism = GetComponentInChildren<Metabolism>();
+        genetics = GetComponentInChildren<Genetics>();
     }
 }

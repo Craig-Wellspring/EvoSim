@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
-  public ResourceType Type;
+  public ResourceType type;
   public float remaining;
 
   public void Initialize(ResourceType _type, float _remaining)
   {
-    Type = _type;
+    type = _type;
     remaining = _remaining;
   }
 

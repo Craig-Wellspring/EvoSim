@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class ResourceStorage : MonoBehaviour
 {
-    public ResourceType Type;
+    public ResourceType type;
     public float increaseMaxStorage = 10f;
 }
