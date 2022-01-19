@@ -5,28 +5,24 @@ using UnityEngine;
 public class Metabolism : MonoBehaviour
 {
     [Range(0, 100)]
-    public float metabolicEfficiency = 20;
+    public float metabolicEfficiency = 20f;
+    public float maintenanceCost = 1f;
 
-    public float metabolismRate = 1;
+    public float metabolismRate = 1f;
 
-    float metaTick = 0;
+    float metaTick = 0f;
 
     ResourceStorageController resources;
 
     CentralNervousSystem CNS;
 
+    Digester[] digesters;
+
     void Start()
     {
         resources = GetComponentInChildren<ResourceStorageController>();
         CNS = GetComponentInParent<CentralNervousSystem>();
-    }
-
-    float CalculateFoodStorage()
-    {
-        float stored = 0f;
-        stored += resources.Flesh.current;
-        stored += resources.Pulp.current;
-        return stored;
+        RegisterDigesters();
     }
 
     float Regenerate()
@@ -42,24 +38,21 @@ public class Metabolism : MonoBehaviour
         }
     }
 
+    void RegisterDigesters()
+    {
+        digesters = transform.root.GetComponentsInChildren<Digester>();
+    }
+
     void Metabolize()
     {
         // DIGEST FOOD
-        if (CalculateFoodStorage() > 0)
+        foreach (Digester digester in digesters)
         {
-            if (resources.Flesh.current > resources.Pulp.current)
-            {
-                resources.Flesh.TakeFrom(1);
-            }
-            else
-            {
-                resources.Pulp.TakeFrom(1);
-            }
-            resources.Energy.AddTo(2);
+            digester.Digest();
         }
 
         // CONSUME ENERGY
-        if (resources.Energy.TakeFrom(1))
+        if (resources.Energy.TakeFrom(maintenanceCost))
         {
             if (resources.Energy.TakeFrom(1))
             {

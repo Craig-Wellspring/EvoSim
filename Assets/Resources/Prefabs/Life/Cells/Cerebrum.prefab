@@ -49,12 +49,55 @@ MonoBehaviour:
   Focus: {fileID: 0}
   Oxygen: {fileID: 0}
   Water: {fileID: 0}
-  Light: {fileID: 0}
   Heat: {fileID: 0}
   Flesh: {fileID: 0}
   Pulp: {fileID: 0}
   Mineral: {fileID: 0}
   DNA: {fileID: 0}
+--- !u!1 &1771661878424313259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1839642746102738372}
+  - component: {fileID: 5474406981792581222}
+  m_Layer: 7
+  m_Name: Perception
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1839642746102738372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771661878424313259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1407117294432544922}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5474406981792581222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771661878424313259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d9eabdc8234f749a9247bf8b08bd48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
 --- !u!1 &1950542114330306459
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   metabolicEfficiency: 20
+  maintenanceCost: 1
   metabolismRate: 2
 --- !u!114 &1528089716279240040
 MonoBehaviour:
@@ -160,6 +204,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.35, z: 0.45}
   m_Children:
   - {fileID: 8904584988056345238}
+  - {fileID: 1839642746102738372}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -175,9 +220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef25cb158f63e546be92fa03bcad669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vitality: {fileID: 4805822540200698344}
-  Metabolism: {fileID: 8871244641692880742}
-  Genetics: {fileID: 0}
+  vitality: {fileID: 0}
+  metabolism: {fileID: 0}
+  genetics: {fileID: 0}
 --- !u!114 &1841948732161695347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f4e6a1b14461e4eb72ce3cc12e7ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 12
+  type: 11
   increaseMaxStorage: 200
 --- !u!33 &8775164092698189674
 MeshFilter:

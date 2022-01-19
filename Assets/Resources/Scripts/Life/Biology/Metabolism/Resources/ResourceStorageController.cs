@@ -6,7 +6,6 @@ public enum ResourceType
 {
     None,
     Heat,
-    Light,
     Water,
     Flesh,
     Pulp,
@@ -21,7 +20,7 @@ public enum ResourceType
 
 public class ResourceStorageController : MonoBehaviour
 {
-    [HideInInspector] public ResourceManager Energy, Health, Stamina, Focus, Oxygen, Water, Light, Heat, Flesh, Pulp, Mineral, DNA;
+    [HideInInspector] public ResourceManager Energy, Health, Stamina, Focus, Oxygen, Water, Heat, Flesh, Pulp, Mineral, DNA;
     void Start()
     {
         Health = gameObject.AddComponent<ResourceManager>();
@@ -38,9 +37,6 @@ public class ResourceStorageController : MonoBehaviour
 
         Heat = gameObject.AddComponent<ResourceManager>();
         Heat.Initialize(ResourceType.Heat);
-
-        Light = gameObject.AddComponent<ResourceManager>();
-        Light.Initialize(ResourceType.Light);
 
         Oxygen = gameObject.AddComponent<ResourceManager>();
         Oxygen.Initialize(ResourceType.Oxygen);

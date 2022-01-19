@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cell
   - Organism
+  - Corpse
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Air
+  - Corpse
   - Life
   - PostProcessing
   - Not in Reflection
