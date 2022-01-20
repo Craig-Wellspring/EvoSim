@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PulpDigester : Digester
 {
-    public override bool ConsumeResource(float _rate)
+    public float efficiency = 2f;
+
+    public override float MetabolizeResource(float _rate)
     {
-        return resources.Pulp.TakeFrom(_rate);
+        float energyGenerated = 0f;
+        if (resources.Pulp.TakeFrom(_rate)) energyGenerated = _rate * efficiency;
+        return energyGenerated;
     }
 }

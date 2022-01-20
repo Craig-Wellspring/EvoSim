@@ -10,6 +10,9 @@ public class Vitality : MonoBehaviour
 
     Corpse corpse;
 
+    [Range(0, 100)]
+    public float regenRate = 1f;
+
     public bool isAlive = true;
 
     void Start()
@@ -37,6 +40,11 @@ public class Vitality : MonoBehaviour
         return resources.Health.AddTo(_increase);
     }
 
+    public float Regenerate()
+    {
+        return Heal(regenRate / 100);
+    }
+
     public float GetCurrentHealth()
     {
         return resources.Health.current;
@@ -49,16 +57,6 @@ public class Vitality : MonoBehaviour
 
     void TransferResourcesToCorpse()
     {
-        if (resources.Heat.current > 0)
-        {
-            corpse.Heat.remaining = resources.Heat.current;
-            resources.Heat.Set(0);
-        }
-        if (resources.Water.current > 0)
-        {
-            corpse.Water.remaining = resources.Water.current;
-            resources.Water.Set(0);
-        }
         if (resources.Flesh.current > 0)
         {
             corpse.Flesh.remaining = resources.Flesh.current;
@@ -109,7 +107,7 @@ public class Vitality : MonoBehaviour
         CNS.metabolism.enabled = false;
 
         // Enable corpse
-        TransferResourcesToCorpse();
         corpse.gameObject.SetActive(true);
+        TransferResourcesToCorpse();
     }
 }

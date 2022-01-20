@@ -5,13 +5,7 @@ using UnityEngine;
 public class Corpse : MonoBehaviour
 {
     [HideInInspector]
-    public Resource
-
-            Heat,
-            Water,
-            Flesh,
-            Pulp,
-            Mineral;
+    public Resource Flesh, Pulp, Mineral;
 
     void AssignResources()
     {
@@ -20,21 +14,9 @@ public class Corpse : MonoBehaviour
         {
             switch (resource.type)
             {
-                case ResourceType.Heat:
-                    Heat = resource;
-                    break;
-                case ResourceType.Water:
-                    Water = resource;
-                    break;
-                case ResourceType.Flesh:
-                    Flesh = resource;
-                    break;
-                case ResourceType.Pulp:
-                    Pulp = resource;
-                    break;
-                case ResourceType.Mineral:
-                    Mineral = resource;
-                    break;
+                case ResourceType.Flesh: Flesh = resource; break;
+                case ResourceType.Pulp: Pulp = resource; break;
+                case ResourceType.Mineral: Mineral = resource; break;
             }
         }
     }

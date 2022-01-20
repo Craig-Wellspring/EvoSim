@@ -5,9 +5,6 @@ using UnityEngine;
 public class Digester : MonoBehaviour
 {
     public float rate = 1f;
-
-    public float energyReturn = 2f;
-
     public float energyCost = 0.5f;
 
     [HideInInspector]
@@ -19,16 +16,18 @@ public class Digester : MonoBehaviour
             transform.root.GetComponentInChildren<ResourceStorageController>();
     }
 
-    public virtual bool ConsumeResource(float _rate)
+    // Consume {_rate} resources in exchange for {return} Energy
+    public virtual float MetabolizeResource(float _rate)
     {
-        return false;
+        return 0f;
     }
 
     public void Digest()
     {
         if (resources.Energy.TakeFrom(energyCost))
         {
-            if (ConsumeResource(rate)) resources.Energy.AddTo(energyReturn);
+            float energyGenerated = MetabolizeResource(rate);
+            if (energyGenerated > 0) resources.Energy.AddTo(energyGenerated);
         }
     }
 }

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class MineralDigester : Digester
 {
-    public override bool ConsumeResource(float _rate)
+    public float efficiency = 2f;
+
+    public override float MetabolizeResource(float _rate)
     {
-        if (resources.Mineral.current >= _rate && resources.Oxygen.current >= _rate)
+        float energyGenerated = 0f;
+        if (
+            resources.Mineral.current >= _rate &&
+            resources.Oxygen.current >= _rate
+        )
         {
-            resources.Mineral.TakeFrom(_rate);
-            resources.Oxygen.TakeFrom(_rate);
-            return true;
+            resources.Mineral.TakeFrom (_rate);
+            resources.Oxygen.TakeFrom (_rate);
+            energyGenerated = _rate * efficiency;
         }
-        else
-        {
-            return false;
-        }
+        return energyGenerated;
     }
 }

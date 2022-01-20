@@ -20,40 +20,67 @@ public enum ResourceType
 
 public class ResourceStorageController : MonoBehaviour
 {
-    [HideInInspector] public ResourceManager Energy, Health, Stamina, Focus, Oxygen, Water, Heat, Flesh, Pulp, Mineral, DNA;
-    void Start()
+    [HideInInspector]
+    public ResourceManager
+
+            Energy,
+            Health,
+            Stamina,
+            Focus,
+            Oxygen,
+            Water,
+            Heat,
+            Flesh,
+            Pulp,
+            Mineral,
+            DNA;
+
+    void AssignResources()
     {
-        Health = gameObject.AddComponent<ResourceManager>();
-        Health.Initialize(ResourceType.Health, true);
-        
-        Stamina = gameObject.AddComponent<ResourceManager>();
-        Stamina.Initialize(ResourceType.Stamina);
+        ResourceManager[] allResources = GetComponents<ResourceManager>();
+        foreach (ResourceManager manager in allResources)
+        {
+            switch (manager.type)
+            {
+                case ResourceType.Health:
+                    Health = manager;
+                    break;
+                case ResourceType.Stamina:
+                    Stamina = manager;
+                    break;
+                case ResourceType.Focus:
+                    Focus = manager;
+                    break;
+                case ResourceType.Energy:
+                    Energy = manager;
+                    break;
+                case ResourceType.Heat:
+                    Heat = manager;
+                    break;
+                case ResourceType.Oxygen:
+                    Oxygen = manager;
+                    break;
+                case ResourceType.Water:
+                    Water = manager;
+                    break;
+                case ResourceType.Flesh:
+                    Flesh = manager;
+                    break;
+                case ResourceType.Pulp:
+                    Pulp = manager;
+                    break;
+                case ResourceType.Mineral:
+                    Mineral = manager;
+                    break;
+                case ResourceType.DNA:
+                    DNA = manager;
+                    break;
+            }
+        }
+    }
 
-        Focus = gameObject.AddComponent<ResourceManager>();
-        Focus.Initialize(ResourceType.Focus);
-
-        Energy = gameObject.AddComponent<ResourceManager>();
-        Energy.Initialize(ResourceType.Energy, true);
-
-        Heat = gameObject.AddComponent<ResourceManager>();
-        Heat.Initialize(ResourceType.Heat);
-
-        Oxygen = gameObject.AddComponent<ResourceManager>();
-        Oxygen.Initialize(ResourceType.Oxygen);
-
-        Water = gameObject.AddComponent<ResourceManager>();
-        Water.Initialize(ResourceType.Water);
-
-        Flesh = gameObject.AddComponent<ResourceManager>();
-        Flesh.Initialize(ResourceType.Flesh);
-
-        Pulp = gameObject.AddComponent<ResourceManager>();
-        Pulp.Initialize(ResourceType.Pulp);
-
-        Mineral = gameObject.AddComponent<ResourceManager>();
-        Mineral.Initialize(ResourceType.Mineral);
-
-        DNA = gameObject.AddComponent<ResourceManager>();
-        DNA.Initialize(ResourceType.DNA);
+    void Awake()
+    {
+        AssignResources();
     }
 }

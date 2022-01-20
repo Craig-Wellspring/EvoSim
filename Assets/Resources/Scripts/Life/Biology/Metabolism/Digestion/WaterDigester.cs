@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class WaterDigester : Digester
 {
-    [Range(0f, 1f)]
-    public float lightRequired = 0.3f;
-    LightLevel lightSense;
+    LightSense lightSense;
 
-    void Start(){
-        lightSense = transform.root.GetComponentInChildren<LightLevel>();
+    void Start()
+    {
+        lightSense = transform.root.GetComponentInChildren<LightSense>();
     }
 
-    public override bool ConsumeResource(float _rate)
+    public override float MetabolizeResource(float _rate)
     {
-        if (resources.Water.current >= _rate && lightSense.level >= lightRequired)
+        if (resources.Water.current >= _rate && lightSense.sensed > 0)
         {
-            resources.Water.TakeFrom(_rate);
-            resources.Oxygen.AddTo(_rate);
-            return true;
+            float adjustedRate = _rate * lightSense.sensed;
+            resources.Water.TakeFrom (adjustedRate);
+            resources.Oxygen.AddTo (adjustedRate);
+            return adjustedRate;
         }
         else
         {
-            return false;
+            return 0f;
         }
     }
 }

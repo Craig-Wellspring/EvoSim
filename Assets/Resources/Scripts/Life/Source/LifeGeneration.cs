@@ -12,16 +12,21 @@ public class LifeGeneration : MonoBehaviour
 
     public int eggs;
 
+    public float spawnRadius = 10f;
+    public float minHeight = 10f;
+    public float maxHeight = 90f;
+
     public GameObject GenerateSpawn()
     {
+        float xRange = Random.Range(-spawnRadius, spawnRadius);
+        float yRange = Random.Range(minHeight, maxHeight);
+        float zRange = Random.Range(-spawnRadius, spawnRadius);
         GameObject newSpawn =
             GameObject
                 .Instantiate(spawn,
-                transform.position + new Vector3(0, 1, 0),
+                transform.position + new Vector3(xRange, yRange, zRange),
                 transform.rotation);
         newSpawn.name = spawn.name;
-        // Rigidbody rb = spawn.GetComponent<Rigidbody>();
-        // rb.AddForce(new Vector3(0, 100, 0), ForceMode.VelocityChange);
 
         return newSpawn;
     }

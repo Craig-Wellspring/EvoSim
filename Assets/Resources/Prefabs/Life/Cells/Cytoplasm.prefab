@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4201277990393361806}
   - component: {fileID: 732088351807052088}
   - component: {fileID: 1492684706425133119}
+  - component: {fileID: 6241513136903345098}
   m_Layer: 7
   m_Name: Cytoplasm
   m_TagString: Cell
@@ -75,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  increaseMaxStorage: 100
+  increaseMaxStorage: 1000
 --- !u!114 &1492684706425133119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,4 +90,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  increaseMaxStorage: 100
+  increaseMaxStorage: 50
+--- !u!114 &6241513136903345098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590787647996246137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f4e6a1b14461e4eb72ce3cc12e7ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+  increaseMaxStorage: 50

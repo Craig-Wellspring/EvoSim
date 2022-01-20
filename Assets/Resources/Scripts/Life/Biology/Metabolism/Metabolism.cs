@@ -6,7 +6,8 @@ public class Metabolism : MonoBehaviour
 {
     [Range(0, 100)]
     public float metabolicEfficiency = 20f;
-    public float maintenanceCost = 1f;
+
+    public float maintenanceCost = 0.5f;
 
     public float metabolismRate = 1f;
 
@@ -25,10 +26,6 @@ public class Metabolism : MonoBehaviour
         RegisterDigesters();
     }
 
-    float Regenerate()
-    {
-        return CNS.vitality.Heal(0.01f);
-    }
 
     void Atrophy()
     {
@@ -54,17 +51,14 @@ public class Metabolism : MonoBehaviour
         // CONSUME ENERGY
         if (resources.Energy.TakeFrom(maintenanceCost))
         {
-            if (resources.Energy.TakeFrom(1))
+            if (!CNS.vitality.isMaxHealth())
             {
-                if (CNS.vitality.isMaxHealth())
-                {
-                    CNS.genetics.GainDNA(1);
-                }
-                else
-                {
-                    Regenerate();
-                }
+                if (resources.Energy.TakeFrom(1)) CNS.vitality.Regenerate();
             }
+            // if !isMaxStam, trade energy for stam
+
+            if (resources.Energy.TakeFrom(1)) CNS.genetics.GainDNA(1);
+
         } // TRADE HEALTH FOR ENERGY
         else
         {
